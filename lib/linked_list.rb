@@ -79,4 +79,23 @@ class LinkedList
       end
     end
   end
+
+  def reverse(node=@head)
+    list = []
+    reverse_helper(list)
+    prev_node = list.first
+    list.each_with_index do |node, i|
+      node.next_node = list[i + 1]
+    end
+    @head = list.first
+    @tail = list.last
+  end
+
+  def reverse_helper(list, node=@head)
+    if node.nil?
+      return list
+    else
+      return reverse_helper(list.unshift(node), node.next_node)
+    end
+  end
 end

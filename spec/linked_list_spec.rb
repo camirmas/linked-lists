@@ -93,4 +93,31 @@ describe LinkedList do
       expect(my_list.insert_after("hello", "yes")).to be == "not found!"
     end
   end
+
+  describe "#reverse" do
+    it "reverses two nodes" do
+      my_list.append(2)
+      my_list.reverse
+
+      expect(my_list.to_s).to be == "2, 5"
+    end
+
+    it "reverses three nodes" do
+      my_list.append(2)
+      my_list.append(3)
+      my_list.reverse
+
+      expect(my_list.to_s).to eq("3, 2, 5")
+    end
+
+    it "reverses a lot of nodes" do
+      my_list.append(2)
+      my_list.append(3)
+      my_list.append("hello")
+      my_list.append(49)
+      my_list.reverse
+
+      expect(my_list.to_s).to eq("49, hello, 3, 2, 5")
+    end
+  end
 end
