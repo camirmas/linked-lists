@@ -63,7 +63,7 @@ describe LinkedList do
       expect(found_node.value).to be == "hello"
     end
 
-    it "returns 'not found' when items are not found" do
+    it "returns nil when items are not found" do
       found_node = my_list.find("yes")
 
       expect(found_node).to be nil
